@@ -8,9 +8,9 @@ void game(){
   fill(255,0,0); 
   fill(255);
   textSize(100);
-  text("Match",width/4,height/7);
+  text("True",width/4,height/7);
   fill(0);
-  text("Miss",width*3/4,height/7);
+  text("False",width*3/4,height/7);
 
  // downcount bar showing how much time you have left before game ends
  fill(255,0,0);

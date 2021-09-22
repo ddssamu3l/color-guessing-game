@@ -79,14 +79,14 @@ void mouseReleased() {
   // game click mechanic
   else if (mode == game) { 
 
-            if (displayStringInt == displayColorInt) {
+            if (displayStringInt == displayColorInt) { // if the string matches the color
               if ( mouseX<width/2) {
                 score++;
                 gameCount = 0;
               } else {
                 mode = end;
               }
-            } else if (displayStringInt != displayColorInt) {
+            } else if (displayStringInt != displayColorInt) { // if the string idnt match
               if ( mouseX>=width/2) {
                 score++;
                 gameCount = 0;
@@ -95,13 +95,16 @@ void mouseReleased() {
               }
             }
         
-            if(rand.nextBoolean()){
-              displayColorInt = (int)Math.floor(Math.random()*(max-min+1)+min);
+            if(rand.nextBoolean()){ // 5050 chance of a true or false puzzle
+              displayColorInt = (int)Math.floor(Math.random()*(max-min+1)+min); // makes the string the same as the color
               displayStringInt = displayColorInt;
             }
-            else{
-               displayColorInt = (int)Math.floor(Math.random()*(max-min+1)+min);
+            else{ // false puzzle
+               displayColorInt = (int)Math.floor(Math.random()*(max-min+1)+min); // randomly generates a string and a color
                displayStringInt = (int)Math.floor(Math.random()*(max-min+1)+min);
+               while(displayStringInt == displayColorInt){ // this makes sure that the false puzzle doesnt accidentally generate the same color and string
+                  displayStringInt = (int)Math.floor(Math.random()*(max-min+1)+min);
+               }
             }
             
             displayColor = colorList[displayColorInt];
